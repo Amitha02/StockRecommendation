@@ -1,0 +1,144 @@
+﻿/*body {
+    background-color: #CFC493;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #006747;
+}*/
+
+body {
+    margin: 0;
+    color: #4d4747;
+    font-family: 'Fira Sans',sans-serif;
+    background: #eef9fe !important;
+}
+
+/*.nav-bar {
+    background-color: #0065a1;
+    color: #ffffff;
+    font-size: x-large;
+}*/
+.nav-bar {
+    background-color: #0065a1;
+    color: #ffffff;
+    font-size: larger;
+    height: 38px;
+    padding: 18px 0 0 10px;
+    font-weight: bold;
+}
+
+.nav-bar > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+td {
+    padding: 5px;
+    text-align:left;
+}
+
+th{
+    text-align:left;
+}
+
+table {
+    border-spacing: 10px;
+    border-collapse: separate;
+    width:100%;
+}
+
+.gainloss {
+    width: 350px;
+    float: left;
+    padding: 0 50px 0 20px;
+}
+
+footer {
+    width: 100%;
+    float: left;
+    background-color: #0065a1;
+    color:#fff;
+    margin-top:15px;
+}
+
+hr {
+    border-color: #0065a1;
+    width:100%; 
+    border-style:inset;
+}
+
+.save {
+    float: right;
+    width: 200px;
+    margin: 12px 0;
+}
+
+.btn {
+    background-color: #0065a1;
+    border-radius: 5px;
+    padding: 10px 0 0px 0;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    font: 600 18px 'Fira Sans',Arial, Helvetica, sans-serif;
+    color: #fff !important;
+    font-variant-ligatures: none;
+    border: none;
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+}
+
+.inputbtn {
+    width: 120px;
+    height: 38px;
+    background-color: #0065a1;
+    border-radius: 5px;
+    text-align: center;
+    font: 600 18px 'Fira Sans',Arial, Helvetica, sans-serif;
+    color: #fff !important;
+    font-variant-ligatures: none;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.ddl {
+    height: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left:10px;
+}
+
+h2 {
+    font: bold 22px 'Fira Sans', Arial, Helvetica, sans-serif;
+    padding: 0 10px;
+    color: #4d4747;
+}
+
+ul li {
+    padding: 5px;
+    font: normal 14px 'Fira Sans', Arial, Helvetica, sans-serif;
+}
+
+p {
+    padding: 0 10px;
+    font: normal 15px 'Fira Sans', Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: #0065a1;
+    font-weight: bold;
+}
+
+tr {
+    font: normal 14px 'Fira Sans', Arial, Helvetica, sans-serif;
+}
+
+thead tr {
+    font: bold 16px 'Fira Sans', Arial, Helvetica, sans-serif;
+}
+
+/*.losers {
+    width: 350px;
+    float: left;
+    padding: 0 50px 0 20px;
+}*/

@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+}
+<h2>Stock Picking Strategy</h2>
+<hr />
+<div>
+    <p>
+        <b>
+            Weekly stock recommendation is based on the stock’s performance for the past one month. The implementation details are the following:
+        </b>
+        <ul>
+            <li>Pick each stock, calculate the highest price for that month and the lowest price for that month</li>
+            <li>Calculate the average high and low price for that month</li>
+            <li>If the average price is close to the Highest Price, we have recommended that stock for buying.</li>
+            <li>If the average price is close to the low price, we have recommended the stock to be sold</li>
+            <li>This indicates whether the stock is trending UP or DOWN to make the appropriate recommendations.</li>
+            <li>Once we have all the stocks, the order of the recommendation is decided by the highest average price for the last month.</li>
+            <li>
+                <b>Top Gainers and Top Losers</b>
+                <ul style="padding:8px 15px;">
+                    <li>
+                        Top Gainers and Top Losers are selected based on the percentage of change in each of the stock price.
+                    </li>
+                    <li>
+                        Top Gainers are picked up with the highest percentage change; while Top Losers are picked with the lowest percentage
+                        change.
+                    </li>
+                    <li>
+                        In order to display top gainers and top losers, the program picks up the top 3 stocks.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </p>
+</div>
+
+<h2>Self Reflection</h2>
+<hr />
+<div>
+    <ul>
+        <li>Learnt using Web API in the C# application.</li>
+        <li>Learnt about creating a new table in the SQL database and the CRUD operations associated with it</li>
+        <li>Learnt about the MVC pattern in the .NET core Application</li>
+        <li>Learnt about various constraints that could occur while pulling the data from the Web API</li>
+        <li>Deserializing the result from the Web API and using it constructively</li>
+    </ul>
+</div>

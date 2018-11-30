@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<h2>IEX Trading Application</h2>
+<hr style="border-color: green;" />
+
+<div>
+    <p>
+        <b>This application let's you fetch trading data from IEX via their public <a href="https://iextrading.com/developer/">API</a>.</b>
+    </p>
+    <ul>
+        <li>
+            The <a asp-area="" asp-controller="Home" asp-action="Symbols">Symbols</a> tab fetches symbols data from the
+            <a href="https://iextrading.com/developer/docs/#reference-data">IEX Reference API </a> and displays the results.
+            This data can also be saved in the local database.
+        </li>
+        <li>
+            The <a asp-area="" asp-controller="Home" asp-action="Chart">Chart</a> tab let's you select a Company(symbol) and fetches a chart from
+            <a href="https://iextrading.com/developer/docs/#stocks">IEX Stock API</a>.
+            The chart can also be saved in the local database.
+        </li>
+
+        <li>
+            The <a asp-area="" asp-controller="Home" asp-action="Recommendation">Recommendations</a> tab provides you top 5 recommended stocks from
+            <a href="https://iextrading.com/developer/docs/#stocks">IEX Stock API</a>.
+            The chart can also be saved in the local database. This page also displays the top buyers and the top losers for this day.
+        </li>
+        <li>
+            The <a asp-area="" asp-controller="Home" asp-action="AboutUs">
+            About Us</a> tab describes the strategy used to pick up the recommendations. 
+                        
+        </li>
+        <li>
+            The <a asp-area="" asp-controller="Home" asp-action="Refresh">Refresh</a> tab let's you refresh the local database, that is, remove all its contents.
+        </li>
+    </ul>
+   
+    <p>
+        <b>Following learning objectives are fulfilled -</b>
+        <ul>
+            <li>Connection to REST API.</li>
+            <li>Connection to database.</li>
+            <li>CRUD operations.</li>
+        </ul>
+    </p>
+</div>

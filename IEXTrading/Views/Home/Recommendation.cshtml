@@ -1,0 +1,205 @@
+﻿@model IEXTrading.Models.ViewModel.ChartCompaniesEquities
+@{
+    ViewData["Title"] = "Recommended Stock";
+}
+<h2>Top 5 Recommended Picks</h2>
+<hr />
+@if (Model.chartCompaniesEquities != null)
+{
+    <table>           
+        <thead>
+                <tr>
+                    <td>
+                        Symbol
+                    </td>
+                    <td>
+                        Last Equity Date
+                    </td>
+                    <td>
+                        Last Open Price
+                    </td>
+                    <td>
+                        Last High Price
+                    </td>
+                    <td>
+                        Last Low Price
+                    </td>
+                    <td>
+                        Last Close Price
+                    </td>
+                    <td>
+                        Last Volume
+                    </td>
+                    <td>
+                        Average Price
+                    </td>
+                    <td>
+                        Highest Price
+                    </td>
+                    <td>
+                        Low Price
+                    </td>
+                    <td>
+                        Recommendation
+                    </td>
+                </tr>
+            </thead>
+        <tbody>            
+            <tr>
+                <td colspan="11">
+                <hr />
+                </td>
+            </tr>
+        @foreach (var equity in Model.chartCompaniesEquities)
+        {
+        <tr>
+            <td>
+                @equity.Current.symbol
+            </td>
+            <td>
+                @equity.Current.date
+            </td>
+            <td>
+                @Math.Round(equity.Current.open, 2)
+            </td>
+            <td>
+                @Math.Round(equity.Current.high, 2)
+            </td>
+            <td>
+                @Math.Round(equity.Current.low, 2)
+            </td>
+            <td>
+                @Math.Round(equity.Current.close, 2)
+            </td>
+            <td>
+                @equity.Current.volume
+            </td>
+            <td>
+                @Math.Round(equity.AvgPrice, 2)
+            </td>
+            <td>
+                @Math.Round(equity.HighPrice, 2)
+            </td>
+            <td>
+                @Math.Round(equity.LowPrice, 2)
+            </td>
+            <td>
+                @equity.Recommendation
+            </td>
+        </tr>
+    }
+        <tr>
+            <td>
+                <a asp-controller="Home" asp-action="SaveRecommendation" class="btn">Save Data</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+}
+else
+{
+<table>
+        <tbody>
+              <tr>
+                 <td>
+                    <h2> Please navigate to Symbols tab and Save Data before you check Recommendations.</h2>
+                 </td>
+              </tr>
+        </tbody>
+</table>
+}
+@if (Model.chartGainers != null)
+            {
+                <div class="gainloss">
+                    <h2>Top Gainers</h2>
+                    <hr />
+                    <table>                        
+
+                            <thead>
+                                <tr>
+                                    <td>
+                                        Symbol
+                                    </td>
+                                    <td>
+                                        Current
+                                    </td>
+                                    <td>
+                                        % Chg
+                                    </td>
+                                </tr>
+                            </thead>
+                        <tbody>
+                                <tr>
+                                    <td colspan="3">
+                                        <hr />
+                                    </td>
+                                </tr>
+
+                                @foreach (var equity in Model.chartGainers)
+                                {
+                                    <tr>
+                                        <td>
+                                            @equity.Symbol
+                                        </td>
+                                        <td>
+                                            @Math.Round(equity.CurrentPrice, 2)
+                                        </td>
+                                        <td>
+                                            @Math.Round(equity.ChangePercent, 2)
+                                        </td>
+
+                                    </tr>
+                                }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            @if (Model.chartLosers != null)
+            {
+                <div class="gainloss">
+                    <h2>Top Losers</h2>
+                    <hr />
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>
+                                    Symbol
+                                </td>
+                                <td>
+                                    Current
+                                </td>
+                                <td>
+                                    % Chg
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3">
+                                    <hr />
+                                </td>
+                            </tr>
+                            @foreach (var equity in Model.chartLosers)
+                            {
+                            <tr>
+                                <td>
+                                    @equity.Symbol
+                                </td>
+                                <td>
+                                    @Math.Round(equity.CurrentPrice, 2)
+                                </td>
+                                <td>
+                                    @Math.Round(equity.ChangePercent, 2)
+                                </td>
+
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+            @*@Html.Partial("~/Views/Home/Gainers.cshtml")*@
+            <script>
+                alertDbSave(@ViewBag.dbSuccessRecommendation);
+            </script>

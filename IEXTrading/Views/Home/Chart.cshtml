@@ -1,0 +1,115 @@
+﻿@model IEXTrading.Models.ViewModel.CompaniesEquities
+
+@{
+    ViewData["Title"] = "Chart";
+}
+
+<h2>Chart</h2>
+<hr />
+
+<form asp-controller="Home" asp-action="Chart" method="get">
+    <select name="symbol" class="ddl">
+        @foreach (var company in Model.Companies)
+        {
+            
+                if (company.name != string.Empty)
+                {
+                    if (ViewBag.SelectedItem == company.symbol)
+                    {
+                        <option value=@company.symbol selected="selected">@company.name</option>
+                    }
+                    else
+                    {
+                        <option value=@company.symbol>@company.name</option>
+                    }
+                }
+                else
+                {
+                    if (ViewBag.SelectedItem == company.symbol)
+                    {
+                        <option value=@company.symbol selected="selected">@company.symbol</option>
+                    }
+                    else
+                    {
+                        <option value=@company.symbol>@company.symbol</option>
+                        }
+                    }
+                }
+            }
+    </select>
+    <input type="submit" value="Get Chart" class="inputbtn" />
+</form>
+@if (Model.Current != null)
+{
+    var equity = Model.Current;
+    <hr />
+    <table>
+        <thead>
+            <tr>
+                <td width="30%">
+                    Current Chart Data
+                    <hr />
+                    <table>
+                        <tbody style="font-weight:normal;">
+                            <tr>
+                                <td>
+                                    Symbol
+                                </td>
+                                <td>
+                                    @equity.symbol
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Open
+                                </td>
+                                <td>
+                                    @equity.open
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    High
+                                </td>
+                                <td>
+                                    @equity.high
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Close
+                                </td>
+                                <td>
+                                    @equity.close
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Volume
+                                </td>
+                                <td>
+                                    @equity.volume
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td width="40%">
+                    <div>
+                        <canvas id="myChart" height="500" width="800"></canvas>
+                    </div>
+                </td>
+                <td width="30%">
+                    <a asp-controller="Home" asp-action="SaveCharts" asp-route-symbol="@Model.Current.symbol" class="btn">
+                    @*<img src="~/images/button_save-data.png" />*@Save Data
+                    </a>
+                </td>
+            </tr>
+        </thead>
+    </table>
+}
+
+<script>
+    getChart("@Model.Dates", "@Model.Prices", "@Model.Volumes", @Model.AvgPrice, @Model.AvgVolume);
+    alertDbSave(@ViewBag.dbSuccessChart);
+</script>
